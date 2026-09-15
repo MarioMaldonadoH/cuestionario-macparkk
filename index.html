@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cuestionario MAC PARKK</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F6F4EE;--surface:#FFFFFF;--ink:#1E2328;--muted:#5F6871;--line:#D9D5CC;--accent:#F2B705;--accent-soft:#FFF3C4;--accent-ink:#5A4300;--ok:#2E7D4F;--bad:#B3261E;--focus:#2B5FD9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171A;--surface:#1D2126;--ink:#ECEDE8;--muted:#A3ABB2;--line:#2F353B;--accent:#F5C333;--accent-soft:#3A3010;--accent-ink:#FFF0B3;--ok:#5BC486;--bad:#F28B82;--focus:#7FA6FF}}
+:root[data-theme="dark"]{--bg:#14171A;--surface:#1D2126;--ink:#ECEDE8;--muted:#A3ABB2;--line:#2F353B;--accent:#F5C333;--accent-soft:#3A3010;--accent-ink:#FFF0B3;--ok:#5BC486;--bad:#F28B82;--focus:#7FA6FF}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Barlow,"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-size:17px;line-height:1.45;padding:0 16px 96px;padding-top:env(safe-area-inset-top,0px)}
+.wrap{max-width:640px;margin:0 auto}
+h1,h2,.eyebrow,.q-n,.bar b{font-family:"Barlow Condensed","Arial Narrow",Barlow,sans-serif}
+h1{font-size:2.4rem;line-height:1;margin:28px 0 8px;text-wrap:balance;letter-spacing:.01em}
+h2{font-size:1.6rem;line-height:1.1;margin:0 0 6px;text-wrap:balance}
+.eyebrow{font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent-soft);display:inline-block;padding:3px 8px;border-radius:3px;margin-bottom:10px}
+.intro{color:var(--ink);max-width:62ch}
+.intro p{margin:0 0 12px}
+.quien{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin:18px 0 6px;padding:14px;border:1px solid var(--line);background:var(--surface);border-radius:8px}
+.quien label{font-weight:600}
+.quien input{flex:1 1 160px;min-width:0;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:10px 0 8px;margin:0 -16px;padding-left:16px;padding-right:16px;border-bottom:1px solid var(--line)}
+.bar .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;max-width:640px;margin:0 auto}
+.bar b{font-size:1.15rem;font-variant-numeric:tabular-nums}
+.bar .st{font-size:.9rem;color:var(--muted)}
+.bar .st.ok{color:var(--ok)}.bar .st.bad{color:var(--bad)}
+.track{height:6px;background:var(--line);border-radius:3px;overflow:hidden;max-width:640px;margin:6px auto 0}
+.fill{height:100%;width:0;background:var(--accent);transition:width .3s}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+section.bloque{margin-top:36px;padding-top:8px}
+.bloque > p.nota{color:var(--muted);margin:0 0 4px;max-width:62ch}
+.q{padding:18px 0 14px;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:0}
+.q-t{margin:0 0 10px;font-weight:600;font-size:1.05rem;text-wrap:pretty}
+.q-n{color:var(--muted);font-weight:700;margin-right:6px;font-size:1rem}
+.q-h{color:var(--muted);font-size:.93rem;margin:-6px 0 10px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;min-height:44px}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.opt:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
+.opt input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--accent-ink);flex:none}
+.opt span{flex:1}
+textarea{width:100%;font:inherit;font-size:1rem;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);min-height:84px;resize:vertical;margin-top:8px}
+textarea:focus-visible{outline:2px solid var(--focus);outline-offset:1px}
+.add{background:none;border:0;color:var(--muted);font:inherit;font-size:.93rem;padding:6px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.add:focus-visible{outline:2px solid var(--focus)}
+.q-s{font-size:.85rem;color:var(--muted);min-height:1.2em;margin-top:6px}
+.q-s.ok{color:var(--ok)}.q-s.bad{color:var(--bad)}
+.fin{margin-top:40px;padding:18px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.fin p{margin:0 0 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Cuestionario MAC PARKK</h1>
+<div class="intro">
+<p>Eduardo, esto es para arreglar el bot de facturas. Ya encontré por qué dejó de leer las fotos y los PDF: del 5 al 9 de septiembre se quedó ciego y aun así le pedía al cliente datos que ya venían en el adjunto. Eso ya quedó corregido. Lo que sigue depende de cómo trabajas tú, y eso nadie lo sabe mejor que tú.</p>
+<p>Son 32 preguntas, casi todas de marcar. Cada respuesta se guarda sola en cuanto la marcas. Puedes cerrar y seguir después con este mismo link. Si una pregunta no aplica, sáltala.</p>
+</div>
+<div class="quien"><label for="quien">Quien contesta:</label><input id="quien" type="text" value="Eduardo" maxlength="60" autocomplete="name"></div>
+</div>
+<div class="bar"><div class="row"><b id="prog">0 de 32 contestadas</b><span class="st" id="st">Sin cambios</span></div><div class="track"><div class="fill" id="fill"></div></div></div>
+<div class="wrap" id="form"></div>
+<div class="wrap"><div class="fin"><p>Eso es todo. Todo lo que marcaste ya está guardado; si cambias de opinión, vuelve a este link y corrige lo que quieras.</p><p>Gracias. Mario.</p></div></div>
+<script>
+var Q=[
+{b:"A",bt:"Qué viste tú",bn:"Antes de corregir nada quiero saber qué te tocó ver a ti estas semanas."},
+{id:"A1",t:"m",q:"Cuando dices que el bot ya no abre los PDF, ¿qué es lo que ves?",o:["Le pide al cliente el monto o la forma de pago aunque vienen en la foto","Le pide RFC o razón social aunque mandó su constancia en PDF","No contesta nada, el correo se queda sin borrador","Hace el borrador con datos equivocados","Otro (cuéntame abajo)"]},
+{id:"A2",t:"r",q:"¿Desde cuándo lo notaste?",o:["Esta semana","Hace como dos semanas","Desde agosto","Siempre ha sido así"]},
+{id:"A3",t:"r",q:"En estas dos semanas, ¿cuántas facturas hiciste tú a mano en Facture porque el bot no las sacó?",o:["Ninguna","De 1 a 5","De 6 a 15","Más de 15"]},
+{id:"A4",t:"x",q:"¿Cuáles facturas sacaste tú a mano estas dos semanas porque el bot no las hizo? Escribe el cliente o la empresa y el monto, una por renglón. Es para no duplicarlas."},
+{id:"A5",t:"x",q:"¿Algún cliente se quejó contigo directo por un correo del bot? ¿Quién y qué dijo?"},
+{b:"B",bt:"Tu rutina con el bot",bn:"El bot deja borradores en Gmail y avisos en Telegram. Quiero saber qué de eso te sirve y qué no."},
+{id:"B1",t:"m",q:"¿Cómo te enteras de que hay una factura por sacar?",o:["Reviso el Gmail de macparkk","Me llega el aviso de Telegram","El cliente me escribe por WhatsApp","Me avisa Mario","Otro (cuéntame abajo)"]},
+{id:"B2",t:"r",q:"Cuando abres un borrador del bot, ¿qué haces normalmente?",o:["Lo mando tal cual","Le corrijo algo y lo mando","Lo borro y escribo el mío","Depende del caso (cuéntame abajo)"]},
+{id:"B3",t:"m",q:"¿Qué es lo que más seguido tienes que corregirle a un borrador?",o:["La forma de pago","El monto","La razón social o el RFC","El tono o las palabras del correo","Nada, salen bien","Otro (cuéntame abajo)"]},
+{id:"B4",t:"r",q:"Los avisos del bot por Telegram, ¿te llegan a ti?",o:["Sí, los veo y los uso","Me llegan pero no les hago caso","No tengo acceso a ese Telegram","No sé de qué avisos hablas"]},
+{id:"B5",t:"r",q:"Cuando el bot dice que faltan datos y tú ves que sí venían en el correo, ¿qué haces?",o:["Facturo yo a mano","Le contesto yo al cliente","Se lo digo a Mario","Lo dejo ahí"]},
+{id:"B6",t:"r",q:"¿Cada cuánto revisas los borradores que deja el bot en Gmail?",o:["Una vez al día","Dos o tres veces al día","Cada rato","Casi nunca"]},
+{b:"C",bt:"La forma de pago",bn:"El bot se para más por esto que por cualquier otra cosa: 13 de las 26 solicitudes abiertas hoy están esperando saber cómo pagó el cliente."},
+{id:"C1",t:"r",q:"Cuando facturas tú a mano, ¿cómo sabes si el cliente pagó con tarjeta, efectivo o transferencia?",o:["Lo veo en el sistema del estacionamiento","Lo veo en el voucher o en la foto que manda","Le pregunto al cliente","Pongo tarjeta y ya","Otro (cuéntame abajo)"]},
+{id:"C2",t:"r",q:"¿El sistema del estacionamiento guarda cómo se pagó cada ticket?",h:"Si sí, cuéntame abajo dónde se busca: por número de ticket, por el QR, por fecha y monto, y si es una pantalla o un reporte.",o:["Sí","No","No sé"]},
+{id:"C3",t:"r",q:"¿El sistema distingue tarjeta de crédito de tarjeta de débito?",o:["Sí","Solo dice tarjeta","No sé"]},
+{id:"C4",t:"r",q:"Cuando no hay forma de saber cómo pagó, ¿qué prefieres que haga el bot?",o:["Que ponga tarjeta de crédito y facture","Que ponga efectivo y facture","Que le pregunte al cliente, como ahora","Que me lo pase a mí"]},
+{id:"C5",t:"r",q:"Si el cliente dice una forma de pago distinta a la que registró el cobro, ¿a quién le creemos?",o:["Al sistema","Al cliente","Hay que preguntarle antes de facturar"]},
+{b:"D",bt:"Monto y tickets",bn:"El bot saca el monto de la foto del ticket o del voucher. Cuando la foto sale mal, se para."},
+{id:"D1",t:"r",q:"Con el número de ticket o el QR, ¿se puede consultar el monto cobrado sin la foto?",o:["Sí","No","No sé"]},
+{id:"D2",t:"r",q:"¿Cuál es el cobro más chico que existe?",h:"El bot desconfía de todo lo que sea menor a $50.",o:["$30 o menos","Entre $30 y $50","Más de $50","Otro (dime cuánto abajo)"]},
+{id:"D3",t:"r",q:"¿Hay casos donde lo que se factura no es lo que dice el ticket? Pensión, evento, descuento, cortesía.",o:["No, siempre es lo del ticket","Sí (cuéntame cuáles abajo)"]},
+{id:"D4",t:"x",q:"Pensiones y clientes que facturan cada mes: ¿quiénes son y cómo se les factura hoy?"},
+{id:"D5",t:"r",q:"Si un correo trae dos tickets, ¿qué va?",o:["Dos facturas, una por ticket","Una sola factura sumada","Depende (explica abajo)"]},
+{b:"E",bt:"Hasta dónde decide solo",bn:"Hoy el bot timbra solo pero se detiene en varios puntos por diseño, no porque no pueda. Tú decides dónde."},
+{id:"E1",t:"r",q:"Cuando los datos vienen de la constancia y el CFDI salió bien, ¿el bot puede mandar la factura al cliente sin que nadie apruebe?",o:["Sí, que la mande","Sí, pero solo hasta cierto monto","No, yo la reviso siempre"]},
+{id:"E2",t:"r",q:"¿Arriba de qué monto quieres revisar antes de timbrar?",o:["No hay tope","$1,000","$2,000","$5,000","Otro (dime cuánto abajo)"]},
+{id:"E3",t:"r",q:"Un cliente nuevo, sin historial, ¿lo factura el bot solo?",o:["Sí","No, quiero verlo primero"]},
+{id:"E4",t:"r",q:"Un cliente que no contesta, ¿cuántas veces le insistimos y luego qué?",o:["Una vez y se cierra","Dos veces y se cierra","Se le sigue escribiendo hasta que conteste","Se le llama por teléfono (dime quién abajo)"]},
+{id:"E5",t:"r",q:"Los reclamos de cobro doble o reembolso, ¿quién los atiende? ¿Y el bot debe contestarle al cliente que ya lo estamos revisando?",o:["Yo, y sí que le conteste","Yo, y que el bot no diga nada","Mario","Otra persona (dime quién abajo)","Hoy nadie"]},
+{id:"E6",t:"r",q:"Cuando hay que refacturar por algo mecánico (forma de pago mal, mismo cliente, mismo monto, mismo mes), ¿el bot puede cancelar y reemitir solo?",o:["Sí","Sí, pero que me avise antes","No, eso siempre lo hace una persona"]},
+{id:"E7",t:"r",q:"El portal viejo de autofactura (las facturas serie F), ¿los clientes todavía se facturan ahí?",o:["Sí, seguido","A veces","Ya no","No sé"]},
+{id:"E8",t:"x",q:"¿Qué correos llegan seguido que el bot debería ignorar por completo? Remitentes, asuntos, lo que sea."},
+{b:"F",bt:"Para cerrar",bn:""},
+{id:"F1",t:"x",q:"Si pudieras cambiarle una sola cosa al bot mañana, ¿cuál?"},
+{id:"F2",t:"x",q:"¿Qué hace bien el bot y no hay que tocar?"},
+{id:"F3",t:"r",q:"Cuando el bot necesite algo de ti, ¿cómo prefieres que te avise?",o:["Telegram","WhatsApp","Correo","No me avise, yo reviso Gmail"]}
+];
+var API="https://rnlmijypdnvizkuinvgt.supabase.co/functions/v1/cuestionario-macparkk-k7q3";
+var QS=Q.filter(function(x){return x.id});
+var TOTAL=QS.length;
+var state={};
+var timers={};
+var quienEl=document.getElementById("quien");
+try{var q0=localStorage.getItem("mp_quien");if(q0)quienEl.value=q0}catch(e){}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function render(){
+  var h="",sec=null;
+  Q.forEach(function(x){
+    if(x.b){if(sec)h+="</section>";h+='<section class="bloque"><span class="eyebrow">Bloque '+x.b+'</span><h2>'+esc(x.bt)+'</h2>'+(x.bn?'<p class="nota">'+esc(x.bn)+'</p>':"");return}
+    h+='<div class="q" id="q-'+x.id+'"><p class="q-t"><span class="q-n">'+x.id+'</span>'+esc(x.q)+'</p>';
+    if(x.h)h+='<p class="q-h">'+esc(x.h)+'</p>';
+    if(x.t!=="x"){
+      h+='<div class="opts">';
+      x.o.forEach(function(o,i){h+='<label class="opt"><input type="'+(x.t==="m"?"checkbox":"radio")+'" name="'+x.id+'" id="'+x.id+'-'+i+'" value="'+esc(o)+'"><span>'+esc(o)+'</span></label>'});
+      h+='</div><button type="button" class="add" data-for="'+x.id+'">Agregar un comentario</button><textarea id="tx-'+x.id+'" hidden placeholder="Escribe aquí"></textarea>';
+    }else{
+      h+='<textarea id="tx-'+x.id+'" placeholder="Escribe aquí"></textarea>';
+    }
+    h+='<div class="q-s" id="s-'+x.id+'"></div></div>';
+  });
+  if(sec!==null||true)h+="</section>";
+  document.getElementById("form").innerHTML=h;
+}
+render();
+document.getElementById("form").addEventListener("change",function(e){var t=e.target;if(t.name)guardar(t.name)});
+document.getElementById("form").addEventListener("click",function(e){var b=e.target.closest(".add");if(!b)return;var tx=document.getElementById("tx-"+b.dataset.for);tx.hidden=false;b.hidden=true;tx.focus()});
+document.getElementById("form").addEventListener("input",function(e){var t=e.target;if(t.tagName!=="TEXTAREA")return;var id=t.id.slice(3);clearTimeout(timers[id]);timers[id]=setTimeout(function(){guardar(id)},900)});
+document.getElementById("form").addEventListener("focusout",function(e){var t=e.target;if(t.tagName!=="TEXTAREA")return;var id=t.id.slice(3);clearTimeout(timers[id]);guardar(id)});
+quienEl.addEventListener("change",function(){try{localStorage.setItem("mp_quien",quienEl.value.trim())}catch(e){}cargar()});
+function leer(id){
+  var x=QS.find(function(y){return y.id===id});var op="";
+  if(x.t==="r"){var r=document.querySelector('input[name="'+id+'"]:checked');op=r?r.value:""}
+  else if(x.t==="m"){op=Array.prototype.map.call(document.querySelectorAll('input[name="'+id+'"]:checked'),function(i){return i.value}).join(" | ")}
+  var tx=document.getElementById("tx-"+id);
+  return{opcion:op,texto:tx?tx.value.trim():""};
+}
+function pintar(id,v){
+  var x=QS.find(function(y){return y.id===id});if(!x)return;
+  if(x.t!=="x"){var vals=(v.opcion||"").split(" | ");document.querySelectorAll('input[name="'+id+'"]').forEach(function(i){i.checked=vals.indexOf(i.value)>=0})}
+  var tx=document.getElementById("tx-"+id);
+  if(tx){tx.value=v.texto||"";if(v.texto){tx.hidden=false;var b=document.querySelector('.add[data-for="'+id+'"]');if(b)b.hidden=true}}
+}
+function progreso(){
+  var n=0;QS.forEach(function(x){var v=state[x.id];if(v&&(v.opcion||v.texto))n++});
+  document.getElementById("prog").textContent=n+" de "+TOTAL+" contestadas";
+  document.getElementById("fill").style.width=Math.round(100*n/TOTAL)+"%";
+}
+function estado(txt,cls){var s=document.getElementById("st");s.textContent=txt;s.className="st "+(cls||"")}
+function guardar(id){
+  var x=QS.find(function(y){return y.id===id});if(!x)return;
+  var v=leer(id);var prev=state[id]||{};
+  if(v.opcion===(prev.opcion||"")&&v.texto===(prev.texto||""))return;
+  state[id]=v;progreso();
+  var s=document.getElementById("s-"+id);s.textContent="Guardando";s.className="q-s";estado("Guardando","");
+  var quien=quienEl.value.trim()||"Eduardo";
+  fetch(API,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({quien:quien,pregunta_id:id,pregunta:x.q,opcion:v.opcion,texto:v.texto})})
+  .then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})
+  .then(function(){s.textContent="Guardado";s.className="q-s ok";estado("Guardado","ok")})
+  .catch(function(){s.textContent="No se guardó. Revisa tu señal y vuelve a marcar.";s.className="q-s bad";estado("Sin guardar","bad");delete state[id];progreso()});
+}
+function cargar(){
+  var quien=quienEl.value.trim()||"Eduardo";
+  estado("Cargando","");
+  fetch(API+"?respuestas=1&quien="+encodeURIComponent(quien),{cache:"no-store"})
+  .then(function(r){return r.json()})
+  .then(function(rows){
+    state={};QS.forEach(function(x){pintar(x.id,{opcion:"",texto:""})});
+    (rows||[]).forEach(function(r){state[r.pregunta_id]={opcion:r.opcion||"",texto:r.texto||""};pintar(r.pregunta_id,state[r.pregunta_id])});
+    progreso();estado(rows&&rows.length?"Respuestas cargadas":"Sin cambios","");
+  })
+  .catch(function(){estado("No pude cargar lo guardado","bad")});
+}
+cargar();
+</script>
+</body>
+</html>
