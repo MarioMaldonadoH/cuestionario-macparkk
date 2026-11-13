@@ -60,54 +60,24 @@ textarea:focus-visible{outline:2px solid var(--focus);outline-offset:1px}
 <div class="wrap">
 <h1>Cuestionario MAC PARKK</h1>
 <div class="intro">
-<p>Eduardo, esto es para arreglar el bot de facturas. Ya encontré por qué dejó de leer las fotos y los PDF: del 5 al 9 de septiembre se quedó ciego y aun así le pedía al cliente datos que ya venían en el adjunto. Eso ya quedó corregido. Lo que sigue depende de cómo trabajas tú, y eso nadie lo sabe mejor que tú.</p>
-<p>Son 32 preguntas, casi todas de marcar. Cada respuesta se guarda sola en cuanto la marcas. Puedes cerrar y seguir después con este mismo link. Si una pregunta no aplica, sáltala.</p>
+<p>Eduardo, son 5 preguntas y te toman unos 3 minutos. La más importante es la primera.</p>
+<p>Desde el 25 de octubre el bot no ha podido sacar ninguna factura. Cuando va a crear la autofactura en Facture, algo le tapa el campo del concepto y se queda atorado. Lo estoy revisando, pero antes necesito saber cuáles de esas facturas ya hiciste tú a mano, para que no salgan dobles cuando el bot vuelva a jalar.</p>
+<p>Cada respuesta se guarda sola en cuanto la marcas. Si una no aplica, sáltala.</p>
 </div>
 <div class="quien"><label for="quien">Quien contesta:</label><input id="quien" type="text" value="Eduardo" maxlength="60" autocomplete="name"></div>
 </div>
-<div class="bar"><div class="row"><b id="prog">0 de 32 contestadas</b><span class="st" id="st">Sin cambios</span></div><div class="track"><div class="fill" id="fill"></div></div></div>
+<div class="bar"><div class="row"><b id="prog">0 de 5 contestadas</b><span class="st" id="st">Sin cambios</span></div><div class="track"><div class="fill" id="fill"></div></div></div>
 <div class="wrap" id="form"></div>
 <div class="wrap"><div class="fin"><p>Eso es todo. Todo lo que marcaste ya está guardado; si cambias de opinión, vuelve a este link y corrige lo que quieras.</p><p>Gracias. Mario.</p></div></div>
 <script>
 var Q=[
-{b:"A",bt:"Qué viste tú",bn:"Antes de corregir nada quiero saber qué te tocó ver a ti estas semanas."},
-{id:"A1",t:"m",q:"Cuando dices que el bot ya no abre los PDF, ¿qué es lo que ves?",o:["Le pide al cliente el monto o la forma de pago aunque vienen en la foto","Le pide RFC o razón social aunque mandó su constancia en PDF","No contesta nada, el correo se queda sin borrador","Hace el borrador con datos equivocados","Otro (cuéntame abajo)"]},
-{id:"A2",t:"r",q:"¿Desde cuándo lo notaste?",o:["Esta semana","Hace como dos semanas","Desde agosto","Siempre ha sido así"]},
-{id:"A3",t:"r",q:"En estas dos semanas, ¿cuántas facturas hiciste tú a mano en Facture porque el bot no las sacó?",o:["Ninguna","De 1 a 5","De 6 a 15","Más de 15"]},
-{id:"A4",t:"x",q:"¿Cuáles facturas sacaste tú a mano estas dos semanas porque el bot no las hizo? Escribe el cliente o la empresa y el monto, una por renglón. Es para no duplicarlas."},
-{id:"A5",t:"x",q:"¿Algún cliente se quejó contigo directo por un correo del bot? ¿Quién y qué dijo?"},
-{b:"B",bt:"Tu rutina con el bot",bn:"El bot deja borradores en Gmail y avisos en Telegram. Quiero saber qué de eso te sirve y qué no."},
-{id:"B1",t:"m",q:"¿Cómo te enteras de que hay una factura por sacar?",o:["Reviso el Gmail de macparkk","Me llega el aviso de Telegram","El cliente me escribe por WhatsApp","Me avisa Mario","Otro (cuéntame abajo)"]},
-{id:"B2",t:"r",q:"Cuando abres un borrador del bot, ¿qué haces normalmente?",o:["Lo mando tal cual","Le corrijo algo y lo mando","Lo borro y escribo el mío","Depende del caso (cuéntame abajo)"]},
-{id:"B3",t:"m",q:"¿Qué es lo que más seguido tienes que corregirle a un borrador?",o:["La forma de pago","El monto","La razón social o el RFC","El tono o las palabras del correo","Nada, salen bien","Otro (cuéntame abajo)"]},
-{id:"B4",t:"r",q:"Los avisos del bot por Telegram, ¿te llegan a ti?",o:["Sí, los veo y los uso","Me llegan pero no les hago caso","No tengo acceso a ese Telegram","No sé de qué avisos hablas"]},
-{id:"B5",t:"r",q:"Cuando el bot dice que faltan datos y tú ves que sí venían en el correo, ¿qué haces?",o:["Facturo yo a mano","Le contesto yo al cliente","Se lo digo a Mario","Lo dejo ahí"]},
-{id:"B6",t:"r",q:"¿Cada cuánto revisas los borradores que deja el bot en Gmail?",o:["Una vez al día","Dos o tres veces al día","Cada rato","Casi nunca"]},
-{b:"C",bt:"La forma de pago",bn:"El bot se para más por esto que por cualquier otra cosa: 13 de las 26 solicitudes abiertas hoy están esperando saber cómo pagó el cliente."},
-{id:"C1",t:"r",q:"Cuando facturas tú a mano, ¿cómo sabes si el cliente pagó con tarjeta, efectivo o transferencia?",o:["Lo veo en el sistema del estacionamiento","Lo veo en el voucher o en la foto que manda","Le pregunto al cliente","Pongo tarjeta y ya","Otro (cuéntame abajo)"]},
-{id:"C2",t:"r",q:"¿El sistema del estacionamiento guarda cómo se pagó cada ticket?",h:"Si sí, cuéntame abajo dónde se busca: por número de ticket, por el QR, por fecha y monto, y si es una pantalla o un reporte.",o:["Sí","No","No sé"]},
-{id:"C3",t:"r",q:"¿El sistema distingue tarjeta de crédito de tarjeta de débito?",o:["Sí","Solo dice tarjeta","No sé"]},
-{id:"C4",t:"r",q:"Cuando no hay forma de saber cómo pagó, ¿qué prefieres que haga el bot?",o:["Que ponga tarjeta de crédito y facture","Que ponga efectivo y facture","Que le pregunte al cliente, como ahora","Que me lo pase a mí"]},
-{id:"C5",t:"r",q:"Si el cliente dice una forma de pago distinta a la que registró el cobro, ¿a quién le creemos?",o:["Al sistema","Al cliente","Hay que preguntarle antes de facturar"]},
-{b:"D",bt:"Monto y tickets",bn:"El bot saca el monto de la foto del ticket o del voucher. Cuando la foto sale mal, se para."},
-{id:"D1",t:"r",q:"Con el número de ticket o el QR, ¿se puede consultar el monto cobrado sin la foto?",o:["Sí","No","No sé"]},
-{id:"D2",t:"r",q:"¿Cuál es el cobro más chico que existe?",h:"El bot desconfía de todo lo que sea menor a $50.",o:["$30 o menos","Entre $30 y $50","Más de $50","Otro (dime cuánto abajo)"]},
-{id:"D3",t:"r",q:"¿Hay casos donde lo que se factura no es lo que dice el ticket? Pensión, evento, descuento, cortesía.",o:["No, siempre es lo del ticket","Sí (cuéntame cuáles abajo)"]},
-{id:"D4",t:"x",q:"Pensiones y clientes que facturan cada mes: ¿quiénes son y cómo se les factura hoy?"},
-{id:"D5",t:"r",q:"Si un correo trae dos tickets, ¿qué va?",o:["Dos facturas, una por ticket","Una sola factura sumada","Depende (explica abajo)"]},
-{b:"E",bt:"Hasta dónde decide solo",bn:"Hoy el bot timbra solo pero se detiene en varios puntos por diseño, no porque no pueda. Tú decides dónde."},
-{id:"E1",t:"r",q:"Cuando los datos vienen de la constancia y el CFDI salió bien, ¿el bot puede mandar la factura al cliente sin que nadie apruebe?",o:["Sí, que la mande","Sí, pero solo hasta cierto monto","No, yo la reviso siempre"]},
-{id:"E2",t:"r",q:"¿Arriba de qué monto quieres revisar antes de timbrar?",o:["No hay tope","$1,000","$2,000","$5,000","Otro (dime cuánto abajo)"]},
-{id:"E3",t:"r",q:"Un cliente nuevo, sin historial, ¿lo factura el bot solo?",o:["Sí","No, quiero verlo primero"]},
-{id:"E4",t:"r",q:"Un cliente que no contesta, ¿cuántas veces le insistimos y luego qué?",o:["Una vez y se cierra","Dos veces y se cierra","Se le sigue escribiendo hasta que conteste","Se le llama por teléfono (dime quién abajo)"]},
-{id:"E5",t:"r",q:"Los reclamos de cobro doble o reembolso, ¿quién los atiende? ¿Y el bot debe contestarle al cliente que ya lo estamos revisando?",o:["Yo, y sí que le conteste","Yo, y que el bot no diga nada","Mario","Otra persona (dime quién abajo)","Hoy nadie"]},
-{id:"E6",t:"r",q:"Cuando hay que refacturar por algo mecánico (forma de pago mal, mismo cliente, mismo monto, mismo mes), ¿el bot puede cancelar y reemitir solo?",o:["Sí","Sí, pero que me avise antes","No, eso siempre lo hace una persona"]},
-{id:"E7",t:"r",q:"El portal viejo de autofactura (las facturas serie F), ¿los clientes todavía se facturan ahí?",o:["Sí, seguido","A veces","Ya no","No sé"]},
-{id:"E8",t:"x",q:"¿Qué correos llegan seguido que el bot debería ignorar por completo? Remitentes, asuntos, lo que sea."},
-{b:"F",bt:"Para cerrar",bn:""},
-{id:"F1",t:"x",q:"Si pudieras cambiarle una sola cosa al bot mañana, ¿cuál?"},
-{id:"F2",t:"x",q:"¿Qué hace bien el bot y no hay que tocar?"},
-{id:"F3",t:"r",q:"Cuando el bot necesite algo de ti, ¿cómo prefieres que te avise?",o:["Telegram","WhatsApp","Correo","No me avise, yo reviso Gmail"]}
+{"b":"A","bt":"Lo urgente","bn":""},
+{"id":"N1","t":"m","q":"Estas solicitudes se quedaron atoradas. Marca las que ya facturaste tú a mano.","h":"Van con las iniciales del cliente, el monto y el día que llegó el correo. Así no salen dobles cuando el bot se destrabe.","o":["#91 · V. V. J. R. · $999 · 1-sep","#96 · R. D. T. · $1,400 · 3-sep","#163 · I. P. S. · $745 · 4-oct","#165 · J. I. · $447 · 5-oct","#175 · I. G. · $298 · 7-oct","#187 · D. I. M. · $596 · 14-oct","#213 · C. T. · $447 · 28-oct","#214 · J. I. · $149 · 29-oct","#216 · A. S. I. · $472 · 29-oct","#217 · L. M. · $447 · 29-oct","#221 · G. S. · $149 · 1-nov","#222 · B. M. · $1,044 · 2-nov","#225 · O. B. · $745 · 4-nov","#226 · J. A. M. J. · $596 · 4-nov","#228 · B. D. M. B. · $1,400 · 5-nov","#229 · G. C. · $1,043 · 5-nov","#230 · E. P. M. · $417 · 6-nov","#234 · X. C. · $596 · 8-nov","#235 · M. D. · $745 · 9-nov","#236 · E. P. I. · $298 · 9-nov","#237 · O. I. L. T. · $447 · 9-nov","#238 · H. M. O. · $745 · 9-nov","#240 · J. M. R. · $596 · 10-nov","#241 · S. G. T. · $1,400 · 11-nov","#242 · J. I. · $895 · 12-nov","Ninguna, todas siguen pendientes"]},
+{"id":"N2","t":"r","q":"Cuando entras a Facture, Facturación, Autofactura, Crear autofactura, ¿te sale algo encima antes de poder escribir?","o":["Sí, sale un aviso o una ventana que hay que cerrar","Se queda cargando un rato","No, entro directo","No uso Autofactura, facturo con Nueva factura","No sé"]},
+{"id":"N3","t":"x","q":"Si te sale un aviso, ¿qué dice y con qué botón lo cierras? Si puedes, mándale captura a Mario por WhatsApp."},
+{"b":"B","bt":"Para que se atore menos","bn":""},
+{"id":"N4","t":"r","q":"Cuando no hay forma de saber cómo pagó el cliente, ¿qué quieres que haga el bot?","o":["Que ponga tarjeta de crédito y facture","Que ponga efectivo y facture","Que le pregunte al cliente, como ahora","Que me lo pase a mí"]},
+{"id":"N5","t":"x","q":"¿Qué correos llegan seguido que el bot debería ignorar? Los avisos del Buzón Tributario del SAT ya los ignora."}
 ];
 var API="https://rnlmijypdnvizkuinvgt.supabase.co/functions/v1/cuestionario-macparkk-k7q3";
 var QS=Q.filter(function(x){return x.id});
